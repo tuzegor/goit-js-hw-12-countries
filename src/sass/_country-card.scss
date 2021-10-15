@@ -1,0 +1,26 @@
+.country-name{
+    font-size: 56px;
+    text-align:  center;
+    color: #7ba7ab;
+    margin-bottom: 30px;
+}
+.country-description {
+    display: flex;
+justify-content: space-around;
+color: #9e9c9c;
+font-size: 46px;
+}
+
+.country-description-list>li{
+margin-bottom: 30px;
+}
+
+.country-languages-list {
+list-style-type: disc;
+}
+.country-languages-list li{
+    margin-top: 20px;
+}
+
+
+
