@@ -1,5 +1,3 @@
-// Есть файл fetchCountries.js с дефолтным экспортом функции fetchCountries(searchQuery), возвращающей промис с массивом стран, результат запроса к API.
-
 import refs from './refs.js';
 const { userCountry, listCountry, cardCountry } = refs;
 import fetchCountries from './fetchCountries.js';
@@ -15,12 +13,19 @@ function searchCountry() {
     console.log(result);
     if (result.length === 1) {
       listCountry.innerHTML = '';
-      
       createCountryBlock(result);
     } else {
-        cardCountry.innerHTML = ''
+      cardCountry.innerHTML = '';
       listMarkup(result);
-      
+      listCountry.addEventListener('click', activateCountry);
+    }
+    function activateCountry(event) {
+      listCountry.innerHTML = '';
+      const currentCountry = result.find(
+        country => country.name.common === event.target.textContent,
+      );
+      console.log(currentCountry);
+      createCountryBlock([currentCountry]);
     }
   });
 }
@@ -36,9 +41,8 @@ function createCountryBlock(result) {
 }
 
 function listMarkup(countriesArr) {
-    ;
   const countryName = countriesArr.map(country => {
-    const markup = `<li class="elem-country"><a class="link-country link" href="">${country.name.common}</a></li>`;
+    const markup = `<li class="country-elem">${country.name.common}</li>`;
     return markup;
   });
   listCountry.innerHTML = countryName.join(' ');
