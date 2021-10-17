@@ -1,7 +1,10 @@
+import { alert} from '@pnotify/core';
+
 import refs from './refs.js';
 const { userCountry, listCountry, cardCountry } = refs;
 import fetchCountries from './fetchCountries.js';
 import template from '../templateCountryCard.hbs';
+
 // ===================================================
 
 userCountry.addEventListener('input', _.debounce(searchCountry, 500));
@@ -47,3 +50,15 @@ function listMarkup(countriesArr) {
   });
   listCountry.innerHTML = countryName.join(' ');
 }
+
+
+    
+
+
+
+
+
+
+
+
+
