@@ -1,4 +1,5 @@
 import { alert} from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
 
 import refs from './refs.js';
 const { userCountry, listCountry, cardCountry } = refs;
