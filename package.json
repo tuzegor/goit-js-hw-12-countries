@@ -1,22 +1,22 @@
 {
-  "name": "goit-js-hw-12-countries",
+  "name": "goit-js-hw-countries-finder",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://tuzegor.github.io/goit-js-hw-12-countries",
+  "homepage": "https://tuzegor.github.io/goit-js-hw-countries-finder",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-12-countries/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-countries-finder/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tuzegor/goit-js-hw-12-countries.git"
+    "url": "git+https://github.com/tuzegor/goit-js-hw-countries-finder.git"
   },
   "keywords": [],
   "author": "Tuz Yehor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tuzegor/goit-js-hw-12-countries/issues"
+    "url": "https://github.com/tuzegor/goit-js-hw-countries-finder/issues"
   },
   "devDependencies": {
     "@pnotify/core": "^5.2.0",
