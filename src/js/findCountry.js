@@ -1,4 +1,4 @@
-import { alert} from '@pnotify/core';
+import { alert } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 
 import refs from './refs.js';
@@ -14,13 +14,13 @@ function searchCountry() {
   let userCountryText = userCountry.value.toLowerCase();
 
   fetchCountries(userCountryText).then(result => {
-    console.log(result);
+    // console.log(result);
     if (result.length === 1) {
       listCountry.innerHTML = '';
       createCountryBlock(result);
     } else {
       cardCountry.innerHTML = '';
-      listMarkup(result);
+      getListMarkup(result);
       listCountry.addEventListener('click', event => activateCountry(event, result));
     }
   });
@@ -28,36 +28,22 @@ function searchCountry() {
 
 function activateCountry(event, result) {
   listCountry.innerHTML = '';
-  const currentCountry = result.find(
-    country => country.name.common === event.target.textContent,
-  );
-  console.log(currentCountry);
+  const currentCountry = result.find(country => country.name.common === event.target.textContent);
+
   createCountryBlock([currentCountry]);
 }
 
 function createCountryBlock(result) {
   const oneCountry = result[0];
 
-  let cardMarkap = template(oneCountry);
-  cardCountry.innerHTML = cardMarkap;
+  let cardMarkup = template(oneCountry);
+  cardCountry.innerHTML = cardMarkup;
 }
 
-function listMarkup(countriesArr) {
+function getListMarkup(countriesArr) {
   const countryName = countriesArr.map(country => {
     const markup = `<li class="country-elem">${country.name.common}</li>`;
     return markup;
   });
   listCountry.innerHTML = countryName.join(' ');
 }
-
-
-    
-
-
-
-
-
-
-
-
-
