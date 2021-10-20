@@ -21,26 +21,24 @@ function searchCountry() {
     } else {
       cardCountry.innerHTML = '';
       listMarkup(result);
-      listCountry.addEventListener('click', activateCountry);
-    }
-    function activateCountry(event) {
-      listCountry.innerHTML = '';
-      const currentCountry = result.find(
-        country => country.name.common === event.target.textContent,
-      );
-      console.log(currentCountry);
-      createCountryBlock([currentCountry]);
+      listCountry.addEventListener('click', event => activateCountry(event, result));
     }
   });
 }
 
+function activateCountry(event, result) {
+  listCountry.innerHTML = '';
+  const currentCountry = result.find(
+    country => country.name.common === event.target.textContent,
+  );
+  console.log(currentCountry);
+  createCountryBlock([currentCountry]);
+}
+
 function createCountryBlock(result) {
   const oneCountry = result[0];
-  console.log(oneCountry);
-  console.log(oneCountry.name.common);
 
   let cardMarkap = template(oneCountry);
-  console.log(cardMarkap);
   cardCountry.innerHTML = cardMarkap;
 }
 
