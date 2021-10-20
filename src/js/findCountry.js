@@ -8,7 +8,7 @@ import template from '../templateCountryCard.hbs';
 
 // ===================================================
 
-userCountry.addEventListener('input', _.debounce(searchCountry, 500));
+userCountry.addEventListener('input', _.debounce(searchCountry, 200));
 
 function searchCountry() {
   let userCountryText = userCountry.value.toLowerCase();
@@ -29,19 +29,17 @@ function searchCountry() {
 function activateCountry(event, result) {
   listCountry.innerHTML = '';
   const currentCountry = result.find(country => country.name.common === event.target.textContent);
-
   createCountryBlock([currentCountry]);
 }
 
 function createCountryBlock(result) {
   const oneCountry = result[0];
-
   let cardMarkup = template(oneCountry);
   cardCountry.innerHTML = cardMarkup;
 }
 
-function getListMarkup(countriesArr) {
-  const countryName = countriesArr.map(country => {
+function getListMarkup(result) {
+  const countryName = result.map(country => {
     const markup = `<li class="country-elem">${country.name.common}</li>`;
     return markup;
   });
